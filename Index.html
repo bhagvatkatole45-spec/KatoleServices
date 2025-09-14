@@ -1,0 +1,102 @@
+
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { FaCar, FaTools, FaWrench, FaPhoneAlt, FaInstagram, FaWhatsapp, FaEnvelope } from "react-icons/fa";
+
+export default function KatoleServices() {
+  const services = [
+    { icon: <FaTools />, title: "General Car Service", price: "₹2000 onwards", img: "https://images.unsplash.com/photo-1605100804328-284aa0f7d33e?auto=format&fit=crop&w=800&q=80" },
+    { icon: <FaWrench />, title: "Engine Repair", price: "₹5000 onwards", img: "https://images.unsplash.com/photo-1615732593272-f7f84c7a0e57?auto=format&fit=crop&w=800&q=80" },
+    { icon: <FaCar />, title: "Wheel Alignment & Balancing", price: "₹800", img: "https://images.unsplash.com/photo-1588776814546-6b2a219c2f97?auto=format&fit=crop&w=800&q=80" },
+    { icon: <FaCar />, title: "AC Service & Repair", price: "₹1200 onwards", img: "https://images.unsplash.com/photo-1612463611298-90a962f8d833?auto=format&fit=crop&w=800&q=80" },
+    { icon: <FaCar />, title: "Battery Replacement", price: "₹3000 onwards", img: "https://images.unsplash.com/photo-1621939514649-1c0f7e5f3e7f?auto=format&fit=crop&w=800&q=80" },
+    { icon: <FaCar />, title: "Car Washing & Detailing", price: "₹500 onwards", img: "https://images.unsplash.com/photo-1605196501440-8ed7a8d4a8d6?auto=format&fit=crop&w=800&q=80" }
+  ];
+
+  return (
+    <div className="bg-gray-50 text-gray-800">
+      {/* Hero Section */}
+      <section className="relative h-screen bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1581090465220-4c4a7c5c16f3?auto=format&fit=crop&w=1600&q=80')" }}>
+        <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center text-white p-4">
+          <motion.h1 initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="text-5xl font-bold mb-4">
+            Katole Services
+          </motion.h1>
+          <p className="text-xl mb-6">Your Trusted Car Service & Repair Centre in Jalgaon</p>
+          <div className="flex gap-4">
+            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-2xl shadow-lg">
+              <a href="tel:9421849862" className="flex items-center"><FaPhoneAlt className="mr-2"/> Call Now</a>
+            </Button>
+            <Button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-2xl shadow-lg">
+              <a href="mailto:bhagvatkatole45@gmail.com" className="flex items-center"><FaEnvelope className="mr-2"/> Email Us</a>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* About Us */}
+      <section className="py-16 max-w-6xl mx-auto px-6">
+        <motion.h2 initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} className="text-3xl font-bold text-center mb-8">About Us</motion.h2>
+        <p className="text-center text-lg leading-relaxed text-gray-600">
+          Katole Services, run by <b>Bhagwat Katole</b>, is your reliable car care partner in <b>Shirsoli, Jalgaon</b>. 
+          With over 5+ years of experience, we specialize in professional, affordable, and honest car maintenance services. 
+          Our mission is to keep your car safe, reliable, and running like new.
+        </p>
+      </section>
+
+      {/* Services */}
+      <section className="py-16 bg-gray-100">
+        <h2 className="text-3xl font-bold text-center mb-12">Our Services</h2>
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-6">
+          {services.map((service, idx) => (
+            <Card key={idx} className="rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow">
+              <img src={service.img} alt={service.title} className="w-full h-48 object-cover" />
+              <CardContent className="p-6 text-center">
+                <div className="text-4xl text-blue-600 mb-4 flex justify-center">{service.icon}</div>
+                <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+                <p className="text-gray-600 mb-4">{service.price}</p>
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl">
+                  <a href={`https://wa.me/919421849862?text=I%20want%20to%20book%20${encodeURIComponent(service.title)}`} target="_blank" rel="noopener noreferrer">Book Now</a>
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-16 max-w-6xl mx-auto px-6">
+        <h2 className="text-3xl font-bold text-center mb-12">What Our Customers Say</h2>
+        <div className="grid md:grid-cols-2 gap-8">
+          <Card className="p-6 shadow-md rounded-2xl">
+            <p className="italic mb-4">“Best car service in Jalgaon, my car runs smooth after every service.”</p>
+            <p className="font-semibold">- Rahul Patil</p>
+          </Card>
+          <Card className="p-6 shadow-md rounded-2xl">
+            <p className="italic mb-4">“Affordable and honest service, highly recommended!”</p>
+            <p className="font-semibold">- Priya Deshmukh</p>
+          </Card>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section className="py-16 bg-gray-100">
+        <h2 className="text-3xl font-bold text-center mb-12">Contact Us</h2>
+        <div className="max-w-4xl mx-auto text-center space-y-4">
+          <p>📍 <a href="https://maps.app.goo.gl/e623AtcnGsqwL8fp9" target="_blank" className="text-blue-600 underline">Shirsoli, Jalgaon 425002</a></p>
+          <p>📞 <a href="tel:9421849862" className="text-blue-600 underline">9421849862</a></p>
+          <p>📧 <a href="mailto:bhagvatkatole45@gmail.com" className="text-blue-600 underline">bhagvatkatole45@gmail.com</a></p>
+          <p>📷 <a href="https://www.instagram.com/bhagvat_katole?igsh=MWk1OG1jaXUxN3I4Nw==" target="_blank" className="text-pink-600 underline flex justify-center items-center gap-2"><FaInstagram /> Instagram</a></p>
+          <p>💬 <a href="https://wa.me/919421849862" target="_blank" className="text-green-600 underline flex justify-center items-center gap-2"><FaWhatsapp /> WhatsApp</a></p>
+          <p className="mt-4">🕘 Open Daily: 9:00 AM – 10:00 PM</p>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-blue-900 text-white py-6 text-center">
+        <p>© 2025 Katole Services. All Rights Reserved.</p>
+        <p className="text-sm">Designed by Bhagwat Katole</p>
+      </footer>
+    </div>
+  );
+}
